@@ -4,6 +4,7 @@ php:
 services:
   - memcached
 before_script:
+  - ./tests/travis_memcached.sh
   - cd tests
 script:
   - phpunit
