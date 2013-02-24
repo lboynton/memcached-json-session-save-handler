@@ -1,0 +1,7 @@
+language: php
+php:
+  - 5.3
+services:
+  - memcached
+before_script:
+  - cd tests
