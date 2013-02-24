@@ -5,3 +5,5 @@ services:
   - memcached
 before_script:
   - cd tests
+script:
+  - phpunit
