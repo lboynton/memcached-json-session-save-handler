@@ -1,6 +1,8 @@
 Memcached JSON Session Save Handler
 ==========
 
+[![Build Status](https://travis-ci.org/lboynton/memcached-json-session-save-handler.png?branch=master)](https://travis-ci.org/lboynton/memcached-json-session-save-handler)
+
 A JSON-formatted memcached session save handler. By default, when saving 
 sessions in memcached using the php-memcached extension, serialisation is
 performed by either php, php_igbinary or WDDX. This custom session save
