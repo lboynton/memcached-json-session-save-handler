@@ -1,0 +1,23 @@
+{
+    "name": "lboynton/memcached-json-session-save-handler",
+    "description": "A session save handler for storing sessions in JSON format in memcache. It uses the php-memcached extension.",
+    "homepage": "https://github.com/lboynton/memcached-json-session-save-handler",
+    "keywords": ["memcache", "memcached", "json", "session", "save handler"],
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Lee Boynton",
+            "email": "lee@lboynton.com",
+            "homepage": "http://lboynton.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "ext-memcached": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Lboy": "library"
+        }
+    }
+}
