@@ -10,25 +10,26 @@ handler serialises the session as JSON and stores it in memcached.
 
 Usage
 ----------
+```php
+// create connection to memcached
+$memcached = new Memcached();
+$memcached->addServer('localhost', 11211);
 
-    // create connection to memcached
-    $memcached = new Memcached();
-    $memcached->addServer('localhost', 11211);
+// register handler (PHP 5.3 compatible)
+$handler = new Lboy\Session\SaveHandler($memcached);
 
-    // register handler (PHP 5.3 compatible)
-    $handler = new Lboy\Session\SaveHandler($memcached);
+session_set_save_handler(
+    array($saveHandler, 'open'),    
+    array($saveHandler, 'close'),
+    array($saveHandler, 'read'),
+    array($saveHandler, 'write'),
+    array($saveHandler, 'destroy'),
+    array($saveHandler, 'gc')
+);
 
-    session_set_save_handler(
-        array($saveHandler, 'open'),
-        array($saveHandler, 'close'),
-        array($saveHandler, 'read'),
-        array($saveHandler, 'write'),
-        array($saveHandler, 'destroy'),
-        array($saveHandler, 'gc')
-    );
+register_shutdown_function('session_write_close');
+session_start();
 
-    register_shutdown_function('session_write_close');
-    session_start();
-
-    // start using the session
-    $_SESSION['serialiser'] = 'this should be in json';
+// start using the session
+$_SESSION['serialiser'] = 'this should be in json';
+```
