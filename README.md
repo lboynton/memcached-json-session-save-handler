@@ -41,7 +41,9 @@ session_set_save_handler(
     array($handler, 'gc')
 );
 
+// the following prevents unexpected effects when using objects as save handlers
 register_shutdown_function('session_write_close');
+
 session_start();
 
 // start using the session
