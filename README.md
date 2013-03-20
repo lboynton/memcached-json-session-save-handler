@@ -8,9 +8,23 @@ sessions in memcached using the php-memcached extension, serialisation is
 performed by either php, php_igbinary or WDDX. This custom session save
 handler serialises the session as JSON and stores it in memcached.
 
+Installation
+----------
+Use [composer](http://getcomposer.org/) to include the save handler in your application.
+```json
+{
+    "require": {
+        "lboynton/memcached-json-session-save-handler": "0.0.1"
+    }
+}
+```
+
 Usage
 ----------
 ```php
+// set up autoloading using composer
+require 'vendor/autoload.php';
+
 // create connection to memcached
 $memcached = new Memcached();
 $memcached->addServer('localhost', 11211);
