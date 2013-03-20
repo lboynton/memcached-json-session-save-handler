@@ -31,5 +31,5 @@ register_shutdown_function('session_write_close');
 session_start();
 
 // start using the session
-$_SESSION['serialiser'] = 'this should be in json';
+$_SESSION['serialisation'] = 'should be in json';
 ```
