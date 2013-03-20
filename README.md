@@ -16,15 +16,15 @@ $memcached = new Memcached();
 $memcached->addServer('localhost', 11211);
 
 // register handler (PHP 5.3 compatible)
-$handler = new Lboy\Session\SaveHandler($memcached);
+$handler = new Lboy\Session\SaveHandler\Memcached($memcached);
 
 session_set_save_handler(
-    array($saveHandler, 'open'),    
-    array($saveHandler, 'close'),
-    array($saveHandler, 'read'),
-    array($saveHandler, 'write'),
-    array($saveHandler, 'destroy'),
-    array($saveHandler, 'gc')
+    array($handler, 'open'),    
+    array($handler, 'close'),
+    array($handler, 'read'),
+    array($handler, 'write'),
+    array($handler, 'destroy'),
+    array($handler, 'gc')
 );
 
 register_shutdown_function('session_write_close');
